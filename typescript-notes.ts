@@ -11,6 +11,22 @@ numbers.forEach(n => n.toString());
 let user: [number, string] = [1, 'John'];
 user.push(1);
 
+// Union
+let number: string | number = 1; // can be string or number
+
+// give explanation of unknown - recommended over any
+let unknown: unknown = 1; // can be any type
+let unknownString: string = unknown as string; // type assertion
+
+// give explanation of any
+let any: any = 1; // can be any type
+let anyString: string = any as string; // type assertion
+
+// give explanation of function returning never
+function throwError(message: string): never {
+    throw new Error(message);
+}
+
 // Enums
 const small = 1;
 const medium = 2;
@@ -56,6 +72,30 @@ let employee: {
     name: 'John',
     retireDate: (date: Date) => {console.log(date)}
 };
+
+type X = {
+    a: string,
+    b: number;
+}
+
+type Y = X & {
+    c: string,
+    d: number
+}
+
+// trying to extend Y from X, this wont work
+let y: Y = {
+    c: "abcde",
+    d: 12345
+}
+
+// Interface
+interface IEmployee {
+    readonly id: number,
+    name: string,
+    retireDate: (date: Date) => void
+}
+
 
 function kgToLbs(weight: number | string): number {
     if (typeof weight === 'number')
