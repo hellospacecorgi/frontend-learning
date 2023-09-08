@@ -2,6 +2,7 @@ import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import DismissableAlert from "./components/DismissableAlert";
+import Todo from "./components/todo";
 import { useState } from "react";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
   return (
     <div>
+      <Todo></Todo>
       <ListGroup
         items={items}
         heading="Cities"
